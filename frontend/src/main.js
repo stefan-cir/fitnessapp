@@ -6,12 +6,16 @@ import { mountRecommendations } from "./components/recommendationsController";
 
 const renderDataList = (hostId, items, emptyMessage, formatter) => {
   const host = document.getElementById(hostId);
+  host.innerHTML = "";
   if (!items.length) {
-    host.innerHTML = `<div class="state-empty">${emptyMessage}</div>`;
+    const empty = document.createElement("div");
+    empty.className = "state-empty";
+    empty.textContent = emptyMessage;
+    host.appendChild(empty);
     return;
   }
 
-  host.innerHTML = items.map((item) => formatter(item)).join("");
+  items.forEach((item) => host.appendChild(formatter(item)));
 };
 
 const renderDashboard = async () => {
@@ -23,22 +27,40 @@ const renderDashboard = async () => {
     nutritionFresh.textContent = `Last synced: ${data.freshness.nutrition || "never"}`;
     workoutFresh.textContent = `Last synced: ${data.freshness.workouts || "never"}`;
 
-    renderDataList("nutrition-list", data.nutrition, "No nutrition entries yet", (entry) => `
-      <div class="data-card">
-        <strong>${entry.product_name}</strong>
-        <p class="muted">${entry.calories_kcal || 0} kcal</p>
-      </div>
-    `);
+    renderDataList("nutrition-list", data.nutrition, "No nutrition entries yet", (entry) => {
+      const card = document.createElement("div");
+      card.className = "data-card";
+      const name = document.createElement("strong");
+      name.textContent = entry.product_name;
+      const kcal = document.createElement("p");
+      kcal.className = "muted";
+      kcal.textContent = `${entry.calories_kcal || 0} kcal`;
+      card.appendChild(name);
+      card.appendChild(kcal);
+      return card;
+    });
 
-    renderDataList("workout-list", data.workouts, "No workouts yet", (session) => `
-      <div class="data-card">
-        <strong>${session.title}</strong>
-        <p class="muted">${session.duration_minutes || "-"} min</p>
-      </div>
-    `);
+    renderDataList("workout-list", data.workouts, "No workouts yet", (session) => {
+      const card = document.createElement("div");
+      card.className = "data-card";
+      const title = document.createElement("strong");
+      title.textContent = session.title;
+      const duration = document.createElement("p");
+      duration.className = "muted";
+      duration.textContent = `${session.duration_minutes || "-"} min`;
+      card.appendChild(title);
+      card.appendChild(duration);
+      return card;
+    });
   } catch (error) {
-    document.getElementById("nutrition-list").innerHTML = `<div class="state-error">${error.message}</div>`;
-    document.getElementById("workout-list").innerHTML = `<div class="state-error">${error.message}</div>`;
+    ["nutrition-list", "workout-list"].forEach((id) => {
+      const host = document.getElementById(id);
+      host.innerHTML = "";
+      const errDiv = document.createElement("div");
+      errDiv.className = "state-error";
+      errDiv.textContent = error.message;
+      host.appendChild(errDiv);
+    });
   }
 };
 
