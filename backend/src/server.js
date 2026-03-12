@@ -1,4 +1,6 @@
 import express from "express";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import dotenv from "dotenv";
 import { initializeDatabase } from "./lib/db.js";
 import { errorHandler, notFoundHandler, logInfo } from "./lib/errors.js";
@@ -10,7 +12,10 @@ import { recommendationRouter } from "./routes/recommendationRoutes.js";
 import { recommendationHistoryRouter } from "./routes/recommendationHistoryRoutes.js";
 import { getLatestProgressSnapshot } from "./repositories/progressSnapshotRepository.js";
 
-dotenv.config();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const repoRoot = path.resolve(__dirname, "../../");
+dotenv.config({ path: path.resolve(repoRoot, ".env") });
 initializeDatabase();
 
 const app = express();

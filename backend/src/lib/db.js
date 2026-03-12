@@ -4,11 +4,11 @@ import { fileURLToPath } from "node:url";
 import dotenv from "dotenv";
 import Database from "better-sqlite3";
 
-dotenv.config();
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const repoRoot = path.resolve(__dirname, "../../../");
+
+dotenv.config({ path: path.resolve(repoRoot, ".env") });
 
 const dbPath = process.env.SQLITE_DB_PATH || "db/fitnessapp.sqlite";
 const absoluteDbPath = path.resolve(repoRoot, dbPath);
