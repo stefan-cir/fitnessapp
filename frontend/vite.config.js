@@ -4,9 +4,12 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "http://localhost:8787",
-        changeOrigin: true,
-      },
-    },
-  },
+
+
+        target: process.env.VITE_BACKEND_URL || "http://localhost:8787",
+        changeOrigin: true
+      }
+    }
+  }
+
 });
