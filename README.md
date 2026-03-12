@@ -2,6 +2,28 @@
 
 A local-first fitness organizer that combines nutrition and workout trends in one dashboard.
 
+## Requirements
+
+- OS: macOS, Linux, or Windows
+- Node.js: 20.x or newer
+- npm: 10.x or newer
+- Network access: required for OpenFoodFacts and Hevy API sync
+- Hevy API key: required for workout sync (`HEVY_API_KEY` in `.env`)
+- OpenFoodFacts User-Agent: required for nutrition sync (`OPENFOODFACTS_USER_AGENT` in `.env`)
+- Local write permissions for:
+	- `db/` (SQLite database file)
+	- `storage/images/` (image files and metadata references)
+- Default ports:
+	- Frontend (Vite): `5173`
+	- Backend API: `8787` (configurable via `PORT`)
+
+Optional helper commands:
+
+```bash
+node -v
+npm -v
+```
+
 ## Stack
 
 - Frontend: Vite + vanilla HTML/CSS/JS
@@ -22,6 +44,11 @@ npm install
 ```bash
 cp .env.example .env
 ```
+
+Required `.env` values before syncing external data:
+
+- `HEVY_API_KEY`
+- `OPENFOODFACTS_USER_AGENT`
 
 3. Start app (frontend + backend):
 
