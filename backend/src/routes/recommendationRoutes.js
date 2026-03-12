@@ -10,7 +10,10 @@ recommendationRouter.post("/generate", (_req, res) => {
   const result = generateRecommendations(goal);
 
   if (!result.sufficientData) {
-    return res.status(422).json(result);
+    return res.status(422).json({
+      ...result,
+      error: result.reason || "Insufficient data to generate recommendations"
+    });
   }
 
   saveRecommendations(result.recommendations);
