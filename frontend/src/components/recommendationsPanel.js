@@ -2,7 +2,12 @@ export const renderRecommendationPanel = ({ latest, history, error }) => {
   const host = document.getElementById("recommendations");
 
   if (error) {
-    host.innerHTML = `<h2>Recommendations</h2><div class="state-empty">${error}</div>`;
+    const heading = document.createElement("h2");
+    heading.textContent = "Recommendations";
+    const errorDiv = document.createElement("div");
+    errorDiv.className = "state-empty";
+    errorDiv.textContent = error;
+    host.replaceChildren(heading, errorDiv);
     return;
   }
 
