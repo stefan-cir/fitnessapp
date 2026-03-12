@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fitness Progress Hub</title>
+    <link rel="stylesheet" href="/src/styles/base.css" />
+    <link rel="stylesheet" href="/src/styles/dashboard.css" />
+    <link rel="stylesheet" href="/src/styles/goals.css" />
+    <link rel="stylesheet" href="/src/styles/recommendations.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="page-header">
+        <h1>Fitness Progress Hub</h1>
+        <p class="subtitle">Nutrition + training in one daily view</p>
+      </header>
+
+      <section id="goal-settings" class="panel"></section>
+      <section id="progress-summary" class="panel"></section>
+
+      <section class="dashboard-grid">
+        <article class="panel" id="nutrition-section">
+          <div class="panel-header">
+            <h2>Nutrition</h2>
+            <div id="nutrition-refresh"></div>
+          </div>
+          <p id="nutrition-freshness" class="muted">Last synced: never</p>
+          <div id="nutrition-list" class="card-list"></div>
+        </article>
+
+        <article class="panel" id="workout-section">
+          <div class="panel-header">
+            <h2>Workouts</h2>
+            <div id="workout-refresh"></div>
+          </div>
+          <p id="workout-freshness" class="muted">Last synced: never</p>
+          <div id="workout-list" class="card-list"></div>
+        </article>
+      </section>
+
+      <section id="recommendations" class="panel"></section>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

@@ -7,11 +7,11 @@
 
 **Purpose**: Initialize Vite frontend, minimal Node backend, and local development baseline.
 
-- [ ] T001 Create project folders for frontend/backend/db/assets in frontend/, backend/, db/, storage/images/
-- [ ] T002 Initialize Vite vanilla app scaffolding in frontend/package.json
-- [ ] T003 [P] Initialize backend Node project with minimal dependencies in backend/package.json
-- [ ] T004 [P] Add root workspace scripts to run frontend and backend together in package.json
-- [ ] T005 [P] Add baseline environment example files for API keys and local paths in .env.example
+- [X] T001 Create project folders for frontend/backend/db/assets in frontend/, backend/, db/, storage/images/
+- [X] T002 Initialize Vite vanilla app scaffolding in frontend/package.json
+- [X] T003 [P] Initialize backend Node project with minimal dependencies in backend/package.json
+- [X] T004 [P] Add root workspace scripts to run frontend and backend together in package.json
+- [X] T005 [P] Add baseline environment example files for API keys and local paths in .env.example
 
 ---
 
@@ -21,14 +21,14 @@
 
 **CRITICAL**: No user story tasks should start until this phase is complete.
 
-- [ ] T006 Create SQLite schema and migration script for profiles, entries, workouts, goals, snapshots, recommendations in db/schema.sql
-- [ ] T007 Implement SQLite connection and repository bootstrap in backend/src/lib/db.js
-- [ ] T008 [P] Implement OpenFoodFacts API client wrapper with response normalization helpers in backend/src/services/openfoodfactsService.js
-- [ ] T009 [P] Implement Hevy API client wrapper with response normalization helpers in backend/src/services/hevyService.js
-- [ ] T010 Create shared error handling and structured logging utilities in backend/src/lib/errors.js
-- [ ] T011 Implement backend HTTP server entry and route registration in backend/src/server.js
-- [ ] T012 Create frontend API service layer for backend calls in frontend/src/services/api.js
-- [ ] T013 Add shared UI tokens and accessibility utility styles in frontend/src/styles/base.css
+- [X] T006 Create SQLite schema and migration script for profiles, entries, workouts, goals, snapshots, recommendations in db/schema.sql
+- [X] T007 Implement SQLite connection and repository bootstrap in backend/src/lib/db.js
+- [X] T008 [P] Implement OpenFoodFacts API client wrapper with response normalization helpers in backend/src/services/openfoodfactsService.js
+- [X] T009 [P] Implement Hevy API client wrapper with response normalization helpers in backend/src/services/hevyService.js
+- [X] T010 Create shared error handling and structured logging utilities in backend/src/lib/errors.js
+- [X] T011 Implement backend HTTP server entry and route registration in backend/src/server.js
+- [X] T012 Create frontend API service layer for backend calls in frontend/src/services/api.js
+- [X] T013 Add shared UI tokens and accessibility utility styles in frontend/src/styles/base.css
 
 **Checkpoint**: Foundation complete; user stories can proceed.
 
@@ -40,16 +40,16 @@
 
 **Independent Test**: Connect both sources, refresh dashboard, and verify both sections render with freshness timestamps and graceful fallback if one source fails.
 
-- [ ] T014 [US1] Create nutrition entries repository for recent reads/writes in backend/src/repositories/nutritionRepository.js
-- [ ] T015 [P] [US1] Create workout sessions repository for recent reads/writes in backend/src/repositories/workoutRepository.js
-- [ ] T016 [US1] Implement sync endpoint for nutrition source in backend/src/routes/nutritionRoutes.js
-- [ ] T017 [US1] Implement sync endpoint for workout source in backend/src/routes/workoutRoutes.js
-- [ ] T018 [US1] Implement aggregated dashboard endpoint combining both sources and freshness metadata in backend/src/routes/dashboardRoutes.js
-- [ ] T019 [P] [US1] Build dashboard layout and section containers in frontend/src/index.html
-- [ ] T020 [US1] Implement dashboard data loading and rendering logic in frontend/src/main.js
-- [ ] T021 [P] [US1] Add dashboard styling for data cards, empty states, and error states in frontend/src/styles/dashboard.css
-- [ ] T022 [US1] Implement manual refresh controls for each source in frontend/src/components/refreshControls.js
-- [ ] T023 [US1] Persist last successful dashboard snapshot for fallback display in backend/src/repositories/dashboardSnapshotRepository.js
+- [X] T014 [US1] Create nutrition entries repository for recent reads/writes in backend/src/repositories/nutritionRepository.js
+- [X] T015 [P] [US1] Create workout sessions repository for recent reads/writes in backend/src/repositories/workoutRepository.js
+- [X] T016 [US1] Implement sync endpoint for nutrition source in backend/src/routes/nutritionRoutes.js
+- [X] T017 [US1] Implement sync endpoint for workout source in backend/src/routes/workoutRoutes.js
+- [X] T018 [US1] Implement aggregated dashboard endpoint combining both sources and freshness metadata in backend/src/routes/dashboardRoutes.js
+- [X] T019 [P] [US1] Build dashboard layout and section containers in frontend/src/index.html
+- [X] T020 [US1] Implement dashboard data loading and rendering logic in frontend/src/main.js
+- [X] T021 [P] [US1] Add dashboard styling for data cards, empty states, and error states in frontend/src/styles/dashboard.css
+- [X] T022 [US1] Implement manual refresh controls for each source in frontend/src/components/refreshControls.js
+- [X] T023 [US1] Persist last successful dashboard snapshot for fallback display in backend/src/repositories/dashboardSnapshotRepository.js
 
 **Checkpoint**: User Story 1 is independently functional and demo-ready.
 
@@ -61,14 +61,14 @@
 
 **Independent Test**: Set each goal type and confirm progress summaries update after sync without manual recalculation.
 
-- [ ] T024 [P] [US2] Create goal profile repository with active-goal queries in backend/src/repositories/goalRepository.js
-- [ ] T025 [US2] Implement goal settings create/update endpoint in backend/src/routes/goalRoutes.js
-- [ ] T026 [US2] Implement progress snapshot calculator service tied to active goal in backend/src/services/progressService.js
-- [ ] T027 [US2] Add progress snapshot persistence and retrieval in backend/src/repositories/progressSnapshotRepository.js
-- [ ] T028 [P] [US2] Create goal settings panel markup in frontend/src/components/goalSettings.js
-- [ ] T029 [US2] Implement goal settings interactions and save flow in frontend/src/components/goalSettingsController.js
-- [ ] T030 [US2] Render goal-aware progress summary widgets on dashboard in frontend/src/components/progressSummary.js
-- [ ] T031 [P] [US2] Add goal-focused visual styles and state messaging in frontend/src/styles/goals.css
+- [X] T024 [P] [US2] Create goal profile repository with active-goal queries in backend/src/repositories/goalRepository.js
+- [X] T025 [US2] Implement goal settings create/update endpoint in backend/src/routes/goalRoutes.js
+- [X] T026 [US2] Implement progress snapshot calculator service tied to active goal in backend/src/services/progressService.js
+- [X] T027 [US2] Add progress snapshot persistence and retrieval in backend/src/repositories/progressSnapshotRepository.js
+- [X] T028 [P] [US2] Create goal settings panel markup in frontend/src/components/goalSettings.js
+- [X] T029 [US2] Implement goal settings interactions and save flow in frontend/src/components/goalSettingsController.js
+- [X] T030 [US2] Render goal-aware progress summary widgets on dashboard in frontend/src/components/progressSummary.js
+- [X] T031 [P] [US2] Add goal-focused visual styles and state messaging in frontend/src/styles/goals.css
 
 **Checkpoint**: User Stories 1 and 2 both work independently.
 
@@ -80,13 +80,13 @@
 
 **Independent Test**: With sufficient historical data, request recommendations and verify rationale, timestamp, and prior recommendation history are displayed.
 
-- [ ] T032 [P] [US3] Create recommendations repository for current and historical reads/writes in backend/src/repositories/recommendationRepository.js
-- [ ] T033 [US3] Implement rule-based coaching engine for load/reps and calories in backend/src/services/recommendationEngine.js
-- [ ] T034 [US3] Implement recommendation generation endpoint with data sufficiency guardrails in backend/src/routes/recommendationRoutes.js
-- [ ] T035 [US3] Implement recommendation history endpoint in backend/src/routes/recommendationHistoryRoutes.js
-- [ ] T036 [P] [US3] Build recommendation panel UI and rationale display in frontend/src/components/recommendationsPanel.js
-- [ ] T037 [US3] Wire recommendation fetch and render flow in frontend/src/components/recommendationsController.js
-- [ ] T038 [P] [US3] Add recommendation-specific visual states for confidence and insufficiency in frontend/src/styles/recommendations.css
+- [X] T032 [P] [US3] Create recommendations repository for current and historical reads/writes in backend/src/repositories/recommendationRepository.js
+- [X] T033 [US3] Implement rule-based coaching engine for load/reps and calories in backend/src/services/recommendationEngine.js
+- [X] T034 [US3] Implement recommendation generation endpoint with data sufficiency guardrails in backend/src/routes/recommendationRoutes.js
+- [X] T035 [US3] Implement recommendation history endpoint in backend/src/routes/recommendationHistoryRoutes.js
+- [X] T036 [P] [US3] Build recommendation panel UI and rationale display in frontend/src/components/recommendationsPanel.js
+- [X] T037 [US3] Wire recommendation fetch and render flow in frontend/src/components/recommendationsController.js
+- [X] T038 [P] [US3] Add recommendation-specific visual states for confidence and insufficiency in frontend/src/styles/recommendations.css
 
 **Checkpoint**: All user stories are independently functional.
 
@@ -96,12 +96,12 @@
 
 **Purpose**: Final quality, UX consistency, and performance hardening.
 
-- [ ] T039 [P] Document setup, run commands, and local data behavior in README.md
-- [ ] T040 Run linting/static analysis and resolve blocking findings in frontend/package.json
-- [ ] T041 [P] Run linting/static analysis and resolve blocking findings in backend/package.json
-- [ ] T042 Validate UX consistency across dashboard, goals, and recommendations flows in frontend/src/styles/base.css
-- [ ] T043 Verify performance budgets for dashboard load and recommendation latency in backend/src/services/performanceCheck.js
-- [ ] T044 [P] Add quickstart validation steps for manual acceptance checks in specs/001-fitness-progress-hub/quickstart.md
+- [X] T039 [P] Document setup, run commands, and local data behavior in README.md
+- [X] T040 Run linting/static analysis and resolve blocking findings in frontend/package.json
+- [X] T041 [P] Run linting/static analysis and resolve blocking findings in backend/package.json
+- [X] T042 Validate UX consistency across dashboard, goals, and recommendations flows in frontend/src/styles/base.css
+- [X] T043 Verify performance budgets for dashboard load and recommendation latency in backend/src/services/performanceCheck.js
+- [X] T044 [P] Add quickstart validation steps for manual acceptance checks in specs/001-fitness-progress-hub/quickstart.md
 
 ---
 
