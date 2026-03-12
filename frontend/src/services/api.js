@@ -7,11 +7,21 @@ const call = async (path, options = {}) => {
     ...options
   });
 
-  const payload = await response.json();
+  const contentType = response.headers.get("Content-Type") || "";
+  const isJson = contentType.includes("application/json");
+
   if (!response.ok) {
-    throw new Error(payload.error || "Request failed");
+    const message = isJson
+      ? ((await response.json().catch(() => ({}))).error || "Request failed")
+      : ((await response.text().catch(() => "")) || "Request failed");
+    throw new Error(message);
   }
-  return payload;
+
+  if (!isJson) {
+    return await response.text();
+  }
+
+  return response.json();
 };
 
 export const api = {
